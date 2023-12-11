@@ -1,10 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
+
 import Title from "../components/Title";
+
+function generateRandomBetween(min, max, exclude) {
+  const rndNum = Math.floor(Math.random() * (max - min)) + min;
+
+  if (rndNum === exclude) {
+    return generateRandomBetween(min, max, exclude);
+  } else {
+    return rndNum;
+  }
+}
 
 function GameScreen() {
   return (
     <View style={styles.screen}>
-      {/* <Text style={styles.title}>Opponent's Guess</Text> */}
       <Title>Opponent's Guess</Title>
       {/* GUESS */}
       <View>
